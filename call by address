@@ -1,19 +1,20 @@
+
 #include <iostream>
 using namespace std;
-void swap(int x, int y)
+void swap(int *x, int *y)
 {
     int temp;
-    temp = x;
-    x=y;
-    y=temp;
-    cout<<x<<y<<endl;
+    temp = *x;
+    *x=*y;
+    *y=temp;
+    cout<<*x<<*y<<endl;
 }
 int main()
 {
     int a,b;
     a=10;
     b=20;
-    swap(a,b);
+    swap(&a,&b);
     cout<<a<<b<<endl;
     return 0;
 }

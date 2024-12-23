@@ -28,7 +28,7 @@ void Display(struct node *p){
     }
 }
 //total count in the list
-void count(struct node *p)
+int count(struct node *p)
 {
     int cnt=0;
     while(p!=0){
@@ -67,6 +67,37 @@ void findele(struct node *p){
         p=p->next;
     }
 }
+void search(struct node *p){
+    int k=4;
+    struct node *q=NULL;
+    while(p!=NULL){
+        if(k==p->data){
+            q->next=p->next;
+            p->next=first;
+            first=p;
+        }
+        q=p;
+        p=p->next;
+    }
+}
+//insertion
+void insert(struct node *p,int index,int x){
+    if(index<0 && index > count(p))
+    return;
+    struct node *t=new node;
+    t->data=x;
+    if(index==0){
+        t->next=first;
+        first=t;
+    }
+    else{
+        for(int i=0;i<index-1;i++){
+            p=p->next;
+            t->next=p->next;
+            p->next=t;
+        }
+    }
+}
 int main()
 {
    int a[]={1,2,3,4,5};
@@ -76,5 +107,9 @@ int main()
    addlist(first);
    maxlist(first);
    findele(first);
-    
+   search(first);
+   Display(first);
+   insert(first,0,10);
+   Display(first);
+   
 }

@@ -20,9 +20,50 @@ void createnode(int A[], int n){
         last =t;
     }
 }
+//display the list of element
 void Display(struct node *p){
     while(p!=NULL){
         cout<<p->data<<endl;
+        p=p->next;
+    }
+}
+//total count in the list
+void count(struct node *p)
+{
+    int cnt=0;
+    while(p!=0){
+        cnt++;
+        p=p->next;
+    }
+    cout<<cnt<<endl;
+}
+//add the summ of the elements in the list
+void addlist(struct node *p){
+    int sum=0;
+    while(p!=0){
+        sum=sum+(p->data);
+        p=p->next;
+    }
+    cout<<sum<<endl;
+}
+//found the maximum number in the list
+void maxlist(struct node *p){
+    int m=0;
+    while(p!=0){
+        if(p->data>m){
+            m=p->data;
+            p=p->next;
+        }
+    }
+    cout<<m<<endl;
+}
+//find the elements//leaner serch
+void findele(struct node *p){
+    int k=4;
+    while(p!=0){
+        if(k==p->data){
+            cout<<p->data<<endl;
+        }
         p=p->next;
     }
 }
@@ -31,5 +72,9 @@ int main()
    int a[]={1,2,3,4,5};
    createnode(a,5);
    Display(first);
+   count(first);
+   addlist(first);
+   maxlist(first);
+   findele(first);
     
 }
